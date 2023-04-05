@@ -1,0 +1,254 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.fullWidth {
+    width: 100%;
+}
+
+.dBtn {
+    width: 150px;
+    height: 35px;
+    border-radius: 4px;
+    font-size: 17px;
+}
+
+.white {
+    background-color: white;
+}
+
+.purple {
+    background-color: #563d7c;
+    color: white;
+}
+
+.selfCenter{
+    align-self: center;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.navbar {
+    background-color: #fbfbfb;
+    height: 61px;
+    align-items: center;
+    display: flex;
+}
+
+.sidebar {
+    background-color: #f8f8f8;
+    height: calc(100vh - 61px);
+    width: 385px;
+    overflow: auto;
+}
+
+.content{
+    background-color: white;
+    height: calc(100vh - 61px);
+    width: calc(100vw - 385px);
+}
+
+.plantillaModal {
+    mat-dialog-container {
+        border-radius: 10px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    }
+}
+
+.cdk-global-scrollblock {
+    overflow: auto;
+}
+
+.green-snackbar {
+    background-color: green;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+.yellow-snackbar {
+    background-color: orange;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+.red-snackbar {
+    background-color: red;
+    color: #fff;
+    button {
+        display: none;
+    }
+}
+
+mat-progress-spinner{
+    position: absolute !important;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-button {
+    background-color: transparent;
+    border: transparent;
+}
+.text-button:hover{
+    text-decoration: underline;
+}
+
+.solid-button {
+    background-color: #385a68;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.fluid-button {
+    background-color: #385a68;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    height: 40px;
+}
+
+
+
+.mat-table-container{
+    max-height: 500px;
+    position: relative;
+    overflow: auto;
+    font-size: 17px;
+  
+    @media only screen and (max-height : 728px) {
+        max-height: 350px !important;
+    }
+  
+    .mat-table::-webkit-scrollbar-thumb {
+        margin-right: 0px !important;
+        background-color: #202d42 !important;
+        width: 15px;
+        border-radius: 20px !important;
+    }
+  
+    .mat-table{
+        background: repeat !important;
+        height: 100%;
+        width: 100%;
+        padding: 2px;
+        overflow: auto;
+        box-shadow: none !important;
+        position: relative;
+        font-size: 17px;
+    }
+    
+    .mat-row:nth-child(odd){
+        background-color: white;
+    }
+  
+    .mat-row:nth-child(even){
+        background-color: #ebebeb;
+    }
+    
+    tr.mat-header-row {
+        height: 60px !important;
+        position: sticky;
+        top: 0;
+    }
+  
+    tr.mat-row {
+        height: 50px !important;
+    }
+  
+    .mat-header-cell{
+        background-color: #563d7c;
+        color: white;
+        text-align: center;
+        padding-right: 10px;
+    }
+  
+    th.mat-header-cell{
+        font-size: 17px;
+        text-transform: uppercase;
+    }
+  
+    th.mat-header-cell:first-of-type{
+        border-top-left-radius: 5px;
+        // border-bottom-left-radius: 5px;
+        padding-left: 10px !important;
+    }
+  
+    th.mat-header-cell:last-of-type{
+        border-top-right-radius: 5px;
+        // border-bottom-right-radius: 5px;
+        padding-right: 0px !important;
+    }
+  
+    td.mat-cell{
+        font-size: 17px;
+    }
+  
+    td.mat-cell:last-of-type{
+        padding-right: 0px !important;
+    }
+  
+    td.mat-cell:first-of-type{
+        padding-left: 10px !important;
+    }
+  
+    td.mat-cell{
+        text-align: center;
+        border-bottom-style: none;
+        padding-right: 5px;
+    }
+  
+    .disabled-text {
+        color: black;
+    }
+    
+    .disabled-text:hover {
+        color: gray
+    }
+  
+    .mediumInput{
+        width: 150px;
+    }
+  }
+
+
+  .mat-form-field-appearance-outline .mat-form-field-outline-start { background-color: white!important; }
+  .mat-form-field-appearance-outline .mat-form-field-outline-gap { background-color: white!important; }
+  .mat-form-field-appearance-outline .mat-form-field-outline-end { background-color: white!important; }
+  // mat-form-field mat-label { background-color: rgba(255, 255, 255, 0.9); }
+  .mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline {
+      opacity: 1!important;
+  }
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    height: 50px;
+    font-size: medium;
+}
+
+  .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0 !important;}
+  .mat-form-field-label-wrapper { top: -1.5em; }
+  .mat-form-field-wrapper {padding-bottom: 0px;}
+
+  .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    transform: translateY(-1.1em) scale(.75);
+    width: 133.33333%;
+  }
+
+  .transperent {
+    background: transparent;
+    border: none;
+  }

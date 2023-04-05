@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-10 col-md-10">
+        <h1 class="">
+            {{dataIn.title}}
+        </h1>
+    </div>
+
+    <div class="col-2 col-md-2" style="text-align: right;">
+        <button class="close" mat-button (click)="closeModal()">X</button>
+    </div>
+</div>
+
+<form [formGroup]="addForm" (ngSubmit)="performRequest()">
+    <div class="row">
+        <div class="col-md-4">
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label for="serial">Serial</mat-label>
+                    <input matInput id="serial" formControlName="serial" class="form-control" name="serial">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label for="quantity">Quantity</mat-label>
+                <input matInput id="quantity" formControlName="quantity" class="form-control" name="quantity" type="number">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label>Producto</mat-label>
+                <input type="text" class="autoInput" matInput placeholder="Producto" id="productWrapper"
+                    #productWrapper formControlName="producto" [matAutocomplete]="autoProduct">
+                <button type="button" class="searchbarSuffix fsize22 transperent" *ngIf="addForm.get('producto').value" matSuffix
+                    aria-label="Clear" (click)="addForm.get('producto').setValue('')">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <mat-autocomplete #autoProduct="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option disabled>Select one product</mat-option>
+                    <mat-option *ngFor="let producto of (productOptions )" [value]="producto">
+                        {{producto.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label>Empleado</mat-label>
+                <input type="text" class="autoInput" matInput placeholder="Empleado" id="empleadoWrapper"
+                    #empleadoWrapper formControlName="empleado" [matAutocomplete]="autoEmpleado">
+                <button type="button" class="searchbarSuffix fsize22 transperent" *ngIf="addForm.get('empleado').value" matSuffix
+                    aria-label="Clear" (click)="addForm.get('empleado').setValue('')">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <mat-autocomplete #autoEmpleado="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option disabled>Select one empleado</mat-option>
+                    <mat-option *ngFor="let empleado of (empleadoOptions )" [value]="empleado">
+                        {{empleado.name}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <!----------------------->
+        <!-- cancel button -->
+        <div class=" ml-2" style="padding-right: 10px;">
+            <button class="dBtn white" mat-stroked-button matRipple (click)="closeModal">
+                <span class="">Cancel</span>
+            </button>
+        </div>
+
+        <!----------------------->
+        <!-- new button -->
+        <div class=" ml-2">
+            <button class="dBtn purple" mat-stroked-button matRipple type="submit" [disabled]="disableButton">
+                <span class="">Save</span>
+            </button>
+        </div>
+    </div>
+    <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+</form>

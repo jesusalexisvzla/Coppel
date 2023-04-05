@@ -1,0 +1,25 @@
+.sidebar-container {
+    padding: 41px 30px 0px 30px;
+
+    .sidebar-list {
+        .sidebar-list-item {
+            height: 44px;
+            width: 100%;
+            padding: 10px 10px 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            color: #2E2E2E;
+        }
+        .sidebar-list-item:hover {
+            background-color: #d6dce1;
+        }
+        .sidebar-list-item:focused {
+            background-color: #d6dce1;
+        }
+
+        .selected-url {
+            background-color: #d6dce1 !important;
+        }
+    }
+}

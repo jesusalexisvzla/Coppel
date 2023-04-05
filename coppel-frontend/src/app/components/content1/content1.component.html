@@ -1,0 +1,66 @@
+<div>
+    <div class="rectangle Rectangle-Copy"></div>
+        <div class="d-flex justify-content-between p-2">
+            <div>
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <input matInput id="searchbar" class="form-control" name="name" placeholder="Buscar empleado..." [formControl]="searchbar">
+                </mat-form-field>
+            </div>
+            <div class="selfCenter">
+                <div class=" ml-2">
+                    <button class="dBtn purple" mat-stroked-button matRipple type="submit" (click)="addEditEmpleado(true)">
+                        <span class="">Nuevo Empleado</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="mat-elevation-z8 mat-table-container">
+                <table mat-table [dataSource]="dataSource">
+                    <!-- Name -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name | titlecase}} </td>
+                    </ng-container>
+                    <!-- Email -->
+                    <ng-container matColumnDef="email">
+                        <th mat-header-cell *matHeaderCellDef> Email </th>
+                        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                    </ng-container>
+                    <!-- isActive -->
+                    <ng-container matColumnDef="isActive">
+                        <th mat-header-cell *matHeaderCellDef> Active </th>
+                        <td mat-cell *matCellDef="let element"> {{element.isActive ? 'Yes' : 'No'}} </td>
+                    </ng-container>
+                    <!-- Edit -->
+                    <ng-container matColumnDef="edit">
+                        <th mat-header-cell *matHeaderCellDef> Edit </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="primary" style="color: #563d7c;" (click)="addEditEmpleado(false, element)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <!-- Delete -->
+                    <ng-container matColumnDef="delete">
+                        <th mat-header-cell *matHeaderCellDef> Delete </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-icon-button color="warn" (click)="deleteEmpleado(element._id)">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- <mat-paginator  [length]="dataSource.length"[pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+            
+                <!-- <mat-paginator #paginator [length]="dataSource.length" [pageIndex]="0"
+                    [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageChanged($event)" aria-label="Select page">
+                </mat-paginator> -->
+            </div>
+        </div>
+    <!-- </div> -->
+    <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+</div>

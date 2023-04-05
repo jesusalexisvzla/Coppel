@@ -1,0 +1,12 @@
+<div class="sidebar">
+    <div class="sidebar-container">
+        <div *ngFor="let item of sidebarMenu" class="d-flex sidebar-list pb-1">
+            <button class="sidebar-list-item" [routerLink]="item.url" [ngClass]="{'selected-url': item.selectedUrl == true}" (click)="togleSelectedUrl(item)">
+                <mat-icon>{{item.icon}}</mat-icon>
+                <div>
+                    {{item.name}}
+                </div>
+            </button>
+        </div>
+    </div>
+</div>

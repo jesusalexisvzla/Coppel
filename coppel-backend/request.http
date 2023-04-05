@@ -1,0 +1,42 @@
+###
+GET http://localhost:9000/api/empleados HTTP/1.1
+###
+POST http://localhost:9000/api/polizas HTTP/1.1
+Content-Type: application/json
+
+{
+    "serial": "asd1212",
+    "quantity": "10",
+    "producto": "642c9196fbfd5dfae20f42cb",
+    "empleado": "642baa4a1e6903dd864be081"
+}
+
+###
+GET http://localhost:9000/api/polizas?{"properties":[ "empleado" ],"value": ["642baa4a1e6903dd864be081", "640017e978e9ca8867244341", "640017fa78e9ca8867244343"], "options": {"manyValues": true}} HTTP/1.1
+
+###
+GET http://localhost:9000/api/positionLogs? HTTP/1.1
+Content-Type: application/json
+
+{
+    "properties": [ "vehicle" ],
+    "value": "64001a8093fe7e8479cd34f2"
+}
+
+###
+GET http://localhost:9000/api/users/63fac098a8aec05f36185f22 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/63fab8075b0a8484a73047c5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "jose",
+    "email": "jose@gmail.com",
+    "password": "puroparkdur0G",
+    "role": "admin",
+    "isActive": false
+}
+
+###
+DELETE http://localhost:9000/api/empleados/642baa6e1e6903dd864be085 HTTP/1.1
